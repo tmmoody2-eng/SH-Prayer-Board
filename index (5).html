@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Heart — 30 Day Devotion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+
+
+<style>
+:root {
+  --cream: #fdf6ec;
+  --parchment: #f5e9d3;
+  --gold: #b8862a;
+  --gold-light: #d4a84b;
+  --crimson: #8b1a1a;
+  --crimson-soft: #a83232;
+  --dark: #1a0f0f;
+  --mid: #5c3a1e;
+  --text: #2d1a0e;
+  --text-muted: #7a5c3a;
+  --border: rgba(184,134,42,0.25);
+  --border-strong: rgba(184,134,42,0.5);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --display: 'IM Fell English', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* decorative top border */
+body::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--crimson), var(--gold), transparent);
+}
+
+.page-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── HEADER ── */
+header {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  position: relative;
+}
+
+header::after {
+  content: '✦ ✦ ✦';
+  display: block;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 8px;
+  margin-top: 1.5rem;
+  opacity: 0.7;
+}
+
+.header-label {
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400;
+  color: var(--crimson);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--mid);
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 2px;
+  margin-top: 0.25rem;
+}
+
+/* ── SECTION HEADINGS ── */
+.section-heading {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--crimson);
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-heading::before,
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.section-heading i {
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+/* ── TODAY'S QUOTE ── */
+.quote-section {
+  background: var(--parchment);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 2rem 2.5rem;
+  margin: 2.5rem 0;
+  position: relative;
+  text-align: center;
+}
+
+.quote-section::before {
+  content: '\201C';
+  font-family: var(--display);
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.2;
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  line-height: 1;
+}
+
+.quote-text {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+  font-family: var(--serif);
+}
+
+/* ── TODAY'S PRAYER ── */
+.todays-prayer {
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--crimson);
+  border-radius: 0 4px 4px 0;
+  padding: 1.75rem 2rem;
+  margin: 2.5rem 0;
+}
+
+.prayer-day-label {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.prayer-title {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--crimson);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.prayer-body {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+/* ── NOTIFICATION BUTTON ── */
+.notif-bar {
+  background: var(--dark);
+  color: #e8d5b0;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.notif-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.notif-text strong {
+  color: var(--gold-light);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.notif-btn {
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 3px;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.notif-btn:hover { background: var(--gold-light); }
+
+.notif-times {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.time-chip {
+  background: rgba(184,134,42,0.15);
+  border: 1px solid rgba(184,134,42,0.3);
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+/* ── 30-DAY TRACKER ── */
+.tracker {
+  margin: 2.5rem 0;
+}
+
+.tracker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.tracker-day {
+  aspect-ratio: 1;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: white;
+  font-family: var(--serif);
+  position: relative;
+}
+
+.tracker-day:hover { border-color: var(--gold); background: var(--parchment); }
+
+.tracker-day.completed {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  color: #fff8ee;
+}
+
+.tracker-day.completed .day-num { color: #fff8ee; }
+.tracker-day.today { border-color: var(--gold); border-width: 2px; }
+
+.day-num {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1;
+}
+
+.tracker-day.completed .check-icon { display: block; }
+.check-icon { display: none; font-size: 0.7rem; color: #ffe8c8; margin-top: 2px; }
+
+.tracker-progress {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--crimson), var(--gold));
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── PRAYER BOARD ── */
+.prayer-board {
+  margin: 2.5rem 0;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.prayer-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.15s;
+  font-family: var(--serif);
+}
+
+.prayer-card:hover {
+  border-color: var(--gold);
+  background: var(--parchment);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(184,134,42,0.15);
+}
+
+.card-icon {
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.card-src {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ── QUOTES CAROUSEL ── */
+.quotes-section {
+  margin: 2.5rem 0;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.quote-card {
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+}
+
+.quote-card p {
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.quote-card cite {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ── MODAL ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,15,15,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--cream);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  transform: translateY(12px);
+  transition: transform 0.2s;
+}
+
+.overlay.open .modal { transform: translateY(0); }
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.modal-title {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--crimson);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.modal-close {
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.1s;
+}
+
+.modal-close:hover { background: var(--parchment); }
+
+.modal-body {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+.modal-source {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-style: italic;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  font-style: italic;
+}
+
+footer::before {
+  content: '✦';
+  display: block;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .notif-bar { flex-direction: column; align-items: flex-start; }
+  .quotes-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <header>
+    <p class="header-label">June — Month of the Sacred Heart</p>
+    <h1>Sacred Heart of Jesus<em>30-Day Devotion</em></h1>
+  </header>
+
+  <!-- TODAY'S QUOTE -->
+  <div class="quote-section" id="daily-quote-section">
+    <p class="quote-text" id="daily-quote-text"></p>
+    <p class="quote-author" id="daily-quote-author"></p>
+  </div>
+
+  <!-- NOTIFICATION BAR -->
+  <div class="notif-bar">
+    <div>
+      <div class="notif-text">
+        <strong>Enable daily reminders</strong>
+        Receive a saint quote &amp; prayer link 4 times a day
+      </div>
+      <div class="notif-times">
+        <span class="time-chip">☀ Morning</span>
+        <span class="time-chip">☀ Noon</span>
+        <span class="time-chip">☕ 3:00 PM</span>
+        <span class="time-chip">🌙 Evening</span>
+      </div>
+    </div>
+    <button class="notif-btn" id="notif-btn" onclick="enableNotifications()">
+      <i class="ti ti-bell"></i> Enable Reminders
+    </button>
+  </div>
+
+  <!-- TODAY'S PRAYER -->
+  <section class="todays-prayer">
+    <p class="prayer-day-label" id="prayer-day-label">Today's Prayer — Day 1</p>
+    <p class="prayer-title" id="prayer-title-today"></p>
+    <p class="prayer-body" id="prayer-body-today"></p>
+  </section>
+
+  <!-- 30-DAY TRACKER -->
+  <section class="tracker">
+    <h2 class="section-heading"><i class="ti ti-calendar-check" aria-hidden="true"></i>30-Day Tracker<i class="ti ti-calendar-check" aria-hidden="true"></i></h2>
+    <div class="tracker-grid" id="tracker-grid"></div>
+    <div class="tracker-progress">
+      <span id="tracker-label">0 of 30 days</span>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+  </section>
+
+  <!-- PRAYER BOARD -->
+  <section class="prayer-board">
+    <h2 class="section-heading"><i class="ti ti-heart" aria-hidden="true"></i>All Prayers<i class="ti ti-heart" aria-hidden="true"></i></h2>
+    <div class="board-grid" id="board-grid"></div>
+  </section>
+
+  <!-- SAINT QUOTES -->
+  <section class="quotes-section">
+    <h2 class="section-heading"><i class="ti ti-quote" aria-hidden="true"></i>Saint Quotes<i class="ti ti-quote" aria-hidden="true"></i></h2>
+    <div class="quotes-grid" id="quotes-grid"></div>
+  </section>
+
+  <footer>
+    "Heart of Jesus help me." — Sacred Heart Devotion
+  </footer>
+
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title-el">
+  <div class="modal">
+    <div class="modal-header">
+      <p class="modal-title" id="modal-title-el"></p>
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body-el"></div>
+    <div class="modal-source" id="modal-source-el"></div>
+  </div>
+</div>
+
+<script>
+const QUOTES = [
+  { text: "The Divine Heart is an ocean full of all good things, wherein poor souls can cast all their needs; it is an ocean full of joy to drown all our sadness, an ocean of humility to drown our folly, an ocean of mercy to those in distress, an ocean of love in which to submerge our poverty.", author: "St. Margaret Mary Alacoque" },
+  { text: "We are weak, but by the Heart of Jesus we shall become strong; by the charity of the Heart of Jesus we shall triumph over death and hell, and in the Heart of Jesus we shall find all the treasures of wisdom and knowledge.", author: "St. Gertrude the Great" },
+  { text: "O Jesus, Your Sacred Heart is an ocean of mercy; I immerse myself in it, trusting in Your infinite compassion.", author: "St. Faustina" },
+  { text: "Surely it is a source of profound consolation to know that we are loved so deeply by Our Lord, who constantly carries us in his heart.", author: "St. Francis de Sales" },
+  { text: "The wounds inflicted on his body have disclosed to us the secrets of his heart; they enable us to contemplate the great mystery of his compassion.", author: "St. Bernard of Clairvaux" },
+  { text: "What joy one experiences when one abandons oneself into the arms of Jesus! The faithful soul becomes his dearest child. He opens his arms to receive it, and presses it to his most Sacred Heart.", author: "St. Gemma Galgani" },
+  { text: "Ever since I have been given the grace to understand also the love of the heart of Jesus, I admit that it has expelled all fear from my heart.", author: "St. Thérèse of Lisieux" },
+  { text: "O Sacred Heart of Jesus, fountain of eternal life, Your Heart is a glowing furnace of Love. You are my refuge and my sanctuary.", author: "St. Gertrude the Great" },
+  { text: "Love overcomes, Love delights, those who love the Sacred Heart rejoice!", author: "St. Bernadette Soubirous" },
+  { text: "No matter what my sufferings may be, I will never complain, and if I have to undergo any humiliation, I will seek refuge in the Sacred Heart of Jesus.", author: "St. Alphonsa of the Immaculate Conception" },
+  { text: "Do not let the past disturb you, just leave everything in the Sacred Heart and begin again with joy.", author: "St. Teresa of Calcutta" },
+  { text: "His Sacred Heart is our refuge and our rest.", author: "St. Francis de Sales" },
+  { text: "Behold this Heart which has so loved men… to testify Its love.", author: "St. Margaret Mary Alacoque" },
+  { text: "In the Sacred Heart, every treasure of wisdom and knowledge is hidden.", author: "St. John Paul II" },
+  { text: "Hide yourself in the Heart of Jesus like a dove that hides in the cleft of the rock.", author: "St. Catherine of Siena" },
+  { text: "May the Heart of Jesus be the center of the universe… the object of every desire.", author: "St. Padre Pio" },
+  { text: "I salute You, O Sacred Heart of Jesus, living and life-giving fountain of eternal life…", author: "St. Gertrude the Great" },
+  { text: "In difficult moments I will fix my gaze upon the silent heart of Jesus, stretched upon the cross…", author: "St. Faustina" },
+  { text: "The Heart of Jesus is a furnace of love for us, and His wounds are doors wide open to receive us.", author: "St. John Eudes" },
+  { text: "Behold the Heart which has so loved men that it spared nothing, even going so far as to exhaust and consume itself, in order to testify its love.", author: "St. Margaret Mary Alacoque" }
+];
+
+const PRAYERS = [
+  { title: "Prayer to the Most Holy Heart", icon: "ti-heart", source: "Blessed be God Prayer Book", text: `O Most Holy Heart of Jesus, fountain of every blessing, I adore Thee, I love Thee and with a lively sorrow for my sins, I offer Thee this poor heart of mine. Make me humble, patient, pure, and wholly obedient to Thy will. Grant, good Jesus, that I may live in Thee and for Thee. Protect me in the midst of danger; comfort me in my afflictions; give me health of body, assistance in my temporal needs, Thy blessing on all that I do, and the grace of a holy death. Within Thy Heart I place my every care. In every need let me come to Thee with humble trust saying,\n\n"Heart of Jesus help me." Amen.` },
+  { title: "Prayer for the Church", icon: "ti-building-church", source: "Blessed be God Prayer Book", text: `O Most Sacred Heart of Jesus, pour down Thy blessings abundantly upon Thy Church, upon the Supreme Pontiff, and upon all the clergy; give perseverance to the just, convert sinners, enlighten unbelievers, bless our parents, friends and benefactors, help the dying, free the souls from Purgatory, and extend over all hearts the sweet empire of Thy love. Amen.` },
+  { title: "Memorare to the Sacred Heart", icon: "ti-shield-heart", source: "Traditional", text: `Remember, O most sweet Jesus, that no one who has had recourse to Thy Sacred Heart, implored its help, or sought its mercy was ever abandoned. Encouraged with confidence, O tenderest of hearts, we present ourselves before Thee, crushed beneath the weight of our sins. In our misery, O Sacred Heart of Jesus, despise not our simple prayers, but mercifully grant our requests.` },
+  { title: "Prayer of St. Gertrude", icon: "ti-star", source: "St. Gertrude the Great", text: `Sanctity of the Heart of Jesus, consecrate my heart;\nProvidence of the Heart of Jesus, watch over my heart;\nUn-changeableness of the Heart of Jesus, strengthen my heart;\nPurity of the Heart of Jesus, purify my heart;\nObedience of the Heart of Jesus, subjugate my heart;\nAmiability of the Heart of Jesus, make Thyself known to my heart;\nDivine attractions of the Heart of Jesus, captivate my heart;\nRiches of the Heart of Jesus, do Ye suffice for my heart;\nFloods of grace and blessing that flow from the Heart of Jesus, inundate my heart;\n\nO Heart of Jesus! be Thou my joy, my peace, my repose in this world and the next.\nO Heart of Jesus! adored in heaven, invoked on earth, feared in hell, reign over all hearts, reign throughout all ages, reign forever in celestial glory. Amen.` },
+  { title: "Offering to the Sacred Heart", icon: "ti-flame", source: "Traditional", text: `My loving Jesus! out of the grateful love I bear Thee, and as a reparation for all my unfaithfulness, I give Thee my heart and I consecrate myself wholly to Thee, and with Thy aid, I purpose never to sin again.\n\nV. Heart of Jesus, burning with love for us,\nR. Inflame our hearts with love of Thee.\n\nLord, we beseech Thee, let Thy Holy Spirit kindle in our hearts that fire of charity which our Lord Jesus Christ, Thy Son, sent forth from His inmost Heart upon this earth, and willed that it should burn with vehemence. Who liveth and reigneth with Thee, in the unity of the same Holy Spirit, God, forever and ever. Amen.` },
+  { title: "Act of Consecration", icon: "ti-certificate", source: "St. Margaret Mary Alacoque", text: `O Sacred Heart of Jesus, to Thee I consecrate and offer up my person and my life, my actions, trials, and sufferings, that my entire being may henceforth only be employed in loving, honouring and glorifying Thee. This is my irrevocable will, to belong entirely to Thee, and to do all for Thy love, renouncing with my whole heart all that can displease Thee.\n\nI take Thee, O Sacred Heart, for the sole object of my love, the protection of my life, the pledge of my salvation, the remedy of my frailty and inconstancy, the reparation for all the defects of my life, and my secure refuge at the hour of my death.\n\nI beseech Thee, through Thine infinite Goodness, grant that my name be engraved upon Thy Heart, for in this I place all my happiness and all my glory, to live and to die as one of Thy devoted servants. Amen.\n\nIn union with the Immaculate Heart of Mary, I consecrate my loved ones, family members and my future to the Sacred Heart of Jesus.` },
+  { title: "Short Consecration Prayer", icon: "ti-pencil-heart", source: "Traditional", text: `O Sacred Heart of Jesus, filled with infinite Love, broken by my ingratitude, pierced by my sins, yet loving me still; accept the consecration that I make to Thee of all that I am and all that I have. Take every faculty of my soul and body and draw me, day by day, nearer and nearer to Thy Sacred Heart, and there, as I can understand the lesson, teach me Thy blessed ways. Amen.` },
+  { title: "Prayer of Reparation", icon: "ti-heart-broken", source: "Traditional", text: `Adorable Heart of Jesus, glowing with love for us and inflamed with zeal for our salvation. O Heart that understands the misery to which our sins have brought us, infinitely rich in mercy to heal the wounds of our souls, behold me humbly kneeling before Thee to express the sorrow that fills my heart for the coldness and indifference with which I have so long returned the numberless benefits which Thou hast bestowed upon me.\n\nWith a deep sense of the outrages that have been heaped upon Thee by my sins and the sins of others, I wish to make reparation to Thy most Sacred Majesty.\n\nMerciful Jesus, be our Mediator with Thy Heavenly Father, Whom we have so grievously offended. Help us to amend our ways. As Thy Sacred Heart is our refuge and our hope when we have sinned, so let it be the strength and support of our repentance, and nothing in life or death shall ever separate us from Thee. Amen.` },
+  { title: "Act of Reparation #1", icon: "ti-cross", source: "Traditional", text: `O Sacred Heart of Jesus, animated with a desire to repair the outrages unceasingly offered to Thee, we prostrate before Thy throne of mercy and on behalf of all mankind, pledge love and fidelity to Thee.\n\n+ The more Thy mysteries are blasphemed, the more firmly we shall believe them, O Sacred Heart of Jesus!\n+ The more hearts despise and ignore Thy Love, the more we shall love Thee, O loving Heart of Jesus!\n+ The more Thy Sacraments are despised and blasphemed, the more frequently we shall receive them with love and reverence, most generous Heart of Jesus!\n+ The more Thy holy laws are transgressed and ignored, the more we shall take care to observe them, most holy Heart of Jesus!\n+ The more the devil strives to destroy souls, the more we shall be inflamed to save them, most zealous Lover of Souls!\n\nMost Sacred Heart of Jesus, always obedient to the Eternal Father, teach us to be ever obedient and humble. Suffer us not to be scandalised, but to persevere in loving obedience trusting always in Thine Sacred Heart and in Mary's Immaculate Heart. Amen.` },
+  { title: "Act of Reparation #2", icon: "ti-candle", source: "Traditional", text: `Sweet Jesus, whose overflowing charity for men is requited by so much forgetfulness, negligence and contempt, behold us prostrate before Thy altar eager to repair by a special act of homage the cruel indifference and injuries, to which Thy loving Heart is everywhere subject.\n\nLoving Jesus, through the intercession of the Blessed Virgin Mary our model in reparation, deign to receive the voluntary offering we make of this act of expiation; and by the crowning gift of perseverance keep us faithful unto death in our duty and the allegiance we owe to Thee, so that we may all one day come to that happy home, where Thou with the Father and the Holy Ghost livest and reignest God, world without end. Amen.` },
+  { title: "Offering (Breviary)", icon: "ti-book", source: "Breviary Web", text: `My loving Savior,\nconsume my heart in that burning love\nwith which your own Heart is inflamed.\nPour out upon me those graces\nwhich flow from your love.\nLet my heart be so united with yours\nthat our wills may be one,\nand my will may in all things\nbe conformed with your will.\nMay your will be the guide and rule\nof my desires and of my actions. Amen.` },
+  { title: "Prayer for Those in Need", icon: "ti-users", source: "Breviary Web", text: `Lord Jesus Christ,\nyour Heart still cherishes all the redeemed\nand is moved to pity for every human need.\nAware of your invitation, "Come to Me,"\nwe pray for the afflicted, the sick, the confused,\nfor all broken hearts, and shattered lives.\nWe bring to you all their material, emotional, and spiritual needs\nas well as our own.\nBy the love that led you to take flesh of the Virgin Mary,\nwe pray that you might enfold us all in your merciful love,\nheal our wounds,\nand grant us what accords with your holy will.` },
+  { title: "Dedication to the Sacred Heart", icon: "ti-crown", source: "Breviary Web", text: `Most kind Jesus, Redeemer of the human race,\nlook down upon us humbly prostrate before you.\nWe are yours, and yours we wish to be;\nbut to be more surely united with you,\neach one of us freely consecrates himself today\nto your Most Sacred Heart.\n\nBe King, O Lord, not only of the faithful who have never forsaken you,\nbut also of the prodigal children who have abandoned you;\nGrant that they may quickly return to their Father's house.\n\nGrant, O Lord, to your Church assurance of freedom and immunity from harm;\ngive tranquility of order to all nations;\nmake the earth resound from pole to pole with one cry:\nPraise to the divine Heart that wrought our salvation;\nto It be glory and honor for ever. Amen.` },
+  { title: "Litany of the Sacred Heart", icon: "ti-list", source: "Breviary Web", text: `Lord, have mercy.\nChrist, have mercy.\nLord, have mercy.\nChrist, hear us.\nChrist, graciously hear us.\n\nHeart of Jesus, Son of the Eternal Father, have mercy on us.\nHeart of Jesus, formed in the womb of the Virgin Mother by the Holy Ghost,\nHeart of Jesus, of infinite majesty,\nHeart of Jesus, holy temple of God,\nHeart of Jesus, glowing furnace of charity,\nHeart of Jesus, full of goodness and love,\nHeart of Jesus, abyss of all virtues,\nHeart of Jesus, king and center of all hearts,\nHeart of Jesus, patient and rich in mercy,\nHeart of Jesus, fount of life and holiness,\nHeart of Jesus, crushed for our iniquities,\nHeart of Jesus, made obedient unto death,\nHeart of Jesus, pierced with a lance,\nHeart of Jesus, source of all consolation,\nHeart of Jesus, our life and resurrection,\nHeart of Jesus, our peace and reconciliation,\nHeart of Jesus, delight of all saints, have mercy on us.\n\nLamb of God, you take away the sins of the world, spare us, O Lord.\nLamb of God, you take away the sins of the world, have mercy on us.\n\nV. Jesus, meek and humble of Heart.\nR. Make our hearts like yours.\n\nAlmighty and everlasting God, look upon the Heart of your well-beloved Son and upon the acts of praise and satisfaction which he renders to you in the name of sinners. Of your great goodness, grant pardon to those who seek your mercy, in the name of your Son, Jesus Christ, who lives and reigns with you, forever and ever. Amen.` },
+  { title: "The Divine Praises", icon: "ti-sparkles", source: "Traditional", text: `Blessed be God.\nBlessed be His Holy Name.\nBlessed be Jesus Christ, true God and true Man.\nBlessed be the Name of Jesus.\nBlessed be His Most Sacred Heart.\nBlessed be His Most Precious Blood.\nBlessed be Jesus in the Most Holy Sacrament of the Altar.\nBlessed be the Holy Spirit, the Paraclete.\nBlessed be the great Mother of God, Mary most Holy.\nBlessed be her Holy and Immaculate Conception.\nBlessed be her Glorious Assumption.\nBlessed be the name of Mary, Virgin and Mother.\nBlessed be St. Joseph, her most chaste spouse.\nBlessed be God in His Angels and in His Saints. Amen.\n\nMay the heart of Jesus, in the Most Blessed Sacrament, be praised, adored, and loved with grateful affection, at every moment, in all the tabernacles of the world, even to the end of time. Amen.` }
+];
+
+// ── STATE ──
+const STORAGE_KEY = 'sacredheart_tracker_v1';
+const START_KEY   = 'sacredheart_start_v1';
+
+function getStartDate() {
+  let d = localStorage.getItem(START_KEY);
+  if (!d) { d = new Date().toISOString().slice(0,10); localStorage.setItem(START_KEY, d); }
+  return new Date(d);
+}
+
+function getCompleted() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+}
+
+function saveCompleted(arr) { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
+
+function daysSinceStart() {
+  const start = getStartDate();
+  const now = new Date();
+  return Math.floor((now - start) / 86400000);
+}
+
+// ── DAILY QUOTE (rotates by real date) ──
+function setDailyQuote() {
+  const dayIndex = daysSinceStart() % QUOTES.length;
+  const q = QUOTES[dayIndex];
+  document.getElementById('daily-quote-text').textContent = q.text;
+  document.getElementById('daily-quote-author').textContent = '— ' + q.author;
+}
+
+// ── TODAY'S PRAYER ──
+function setTodaysPrayer() {
+  const day = Math.min(daysSinceStart(), 29);
+  const prayer = PRAYERS[day % PRAYERS.length];
+  document.getElementById('prayer-day-label').textContent = `Today's Prayer — Day ${day + 1} of 30`;
+  document.getElementById('prayer-title-today').textContent = prayer.title;
+  document.getElementById('prayer-body-today').textContent = prayer.text;
+}
+
+// ── TRACKER ──
+function buildTracker() {
+  const grid = document.getElementById('tracker-grid');
+  const completed = getCompleted();
+  const today = daysSinceStart();
+  grid.innerHTML = '';
+
+  for (let i = 0; i < 30; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'tracker-day' + (completed.includes(i) ? ' completed' : '') + (i === today ? ' today' : '');
+    btn.setAttribute('aria-label', `Day ${i+1}${completed.includes(i) ? ' — completed' : ''}`);
+    btn.innerHTML = `<span class="day-num">${i+1}</span><span class="check-icon">✓</span>`;
+    btn.addEventListener('click', () => toggleDay(i));
+    grid.appendChild(btn);
+  }
+  updateProgress();
+}
+
+function toggleDay(i) {
+  const completed = getCompleted();
+  const idx = completed.indexOf(i);
+  if (idx > -1) completed.splice(idx, 1);
+  else completed.push(i);
+  saveCompleted(completed);
+  buildTracker();
+}
+
+function updateProgress() {
+  const completed = getCompleted();
+  const n = completed.length;
+  document.getElementById('tracker-label').textContent = `${n} of 30 days`;
+  document.getElementById('progress-fill').style.width = Math.round((n/30)*100) + '%';
+}
+
+// ── PRAYER BOARD ──
+function buildBoard() {
+  const grid = document.getElementById('board-grid');
+  PRAYERS.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'prayer-card';
+    btn.innerHTML = `<div class="card-icon"><i class="ti ${p.icon}" aria-hidden="true"></i></div><p class="card-title">${p.title}</p><p class="card-src">${p.source}</p>`;
+    btn.addEventListener('click', () => openModal(p.title, p.text, p.source));
+    grid.appendChild(btn);
+  });
+}
+
+// ── QUOTES GRID ──
+function buildQuotes() {
+  const grid = document.getElementById('quotes-grid');
+  QUOTES.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'quote-card';
+    card.innerHTML = `<p>${q.text}</p><cite>${q.author}</cite>`;
+    grid.appendChild(card);
+  });
+}
+
+// ── MODAL ──
+function openModal(title, body, source) {
+  document.getElementById('modal-title-el').textContent = title;
+  document.getElementById('modal-body-el').textContent = body;
+  document.getElementById('modal-source-el').textContent = 'Source: ' + source;
+  document.getElementById('overlay').classList.add('open');
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('overlay').addEventListener('click', e => { if (e.target === document.getElementById('overlay')) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+
+// ── NOTIFICATIONS ──
+function enableNotifications() {
+  if (typeof OneSignal !== 'undefined') {
+    OneSignal.push(function() {
+      OneSignal.showSlidedownPrompt();
+    });
+  } else {
+    alert('To enable notifications:\n\n1. Sign up free at onesignal.com\n2. Create a Web Push app\n3. Paste your App ID into this page\n4. Set 4 daily reminder times in the OneSignal dashboard\n\nSee the SETUP.md file for step-by-step instructions.');
+  }
+}
+
+// ── INIT ──
+setDailyQuote();
+setTodaysPrayer();
+buildTracker();
+buildBoard();
+buildQuotes();
+</script>
+</body>
+</html>
